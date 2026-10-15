@@ -1,0 +1,28 @@
+{
+  "id": "022878",
+  "fileName": "01-basic-commands-notebook.json",
+  "name": "01 - Basic Commands",
+  "cells": [
+    {
+      "id": "827743",
+      "type": "markdown",
+      "content": "Commands are are used to store and retrieve data. Each types has different sets of commands.\n\nSome other common data types in redis are: string, list, hash, set, sorted set, bitmap, hyperlog, JSON, and index\n\nFor example Strings:\n- SET key value\n- GET key "
+    },
+    {
+      "id": "c42e1e",
+      "type": "redis",
+      "content": "// Set key value\r\nSET message 'Hi There'"
+    },
+    {
+      "id": "1792036856905",
+      "type": "redis",
+      "content": "// Get a value by key\r\nGET message "
+    },
+    {
+      "id": "1792038447566",
+      "type": "markdown",
+      "content": "## Redis `SET` Syntax\n\n```text\nSET key value\n    [ NX\n    | XX\n    | IFEQ ifeq-value\n    | IFNE ifne-value\n    | IFDEQ ifdeq-digest\n    | IFDNE ifdne-digest\n    ]\n    [ GET ]\n    [\n      EX seconds\n    | PX milliseconds\n    | EXAT unix-time-seconds\n    | PXAT unix-time-milliseconds\n    | KEEPTTL\n    ]\n```\n\n Syntax Notation:\n\n- UPPERCASE = keyword you type as shown.\n- lowercase = placeholder; replace it with your value.\n- [] = optional; you can omit it.\n- | = OR; choose one alternative.\n- \"\" = quotes; group text into a single string when needed.\n\nkey value = required arguments.\n\nImportant:\n\n- key, value, seconds, milliseconds, ifeq-value, and ifeq-digest are placeholders, not literal keywords.\n- NX, XX, GET, EX, PX, EXAT, PXAT, and KEEPTTL are options you type literally.\n- The square brackets and vertical bars in the syntax diagram are documentation notation. Do not type them into the Redis command.\n- The options have specific rules; you cannot freely combine every option with every other option.\n- [ | ] - if you see | , only one option can be selected. "
+    }
+  ],
+  "createdAt": "2026-10-15T03:53:04.893Z"
+}

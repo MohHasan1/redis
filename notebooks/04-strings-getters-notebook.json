@@ -1,0 +1,28 @@
+{
+  "id": "da4d06",
+  "fileName": "04-strings-getters-notebook.json",
+  "name": "04  - Strings (Getters)",
+  "cells": [
+    {
+      "id": "536ccd",
+      "type": "markdown",
+      "content": "1 - GET\n\nhttps://redis.io/docs/latest/commands/get/\n\n```text\nGET key\n```\n\n- Returns the value of a key.\n- Returns nil if the key does not exist.\n\n2 - MGET\n\nhttps://redis.io/docs/latest/commands/mget/\n\n```text\nMGET key [key ...]\n```\n\n- Returns the values of multiple keys.\n- Returns null for keys that do not exist.\n"
+    },
+    {
+      "id": "0e7beb",
+      "type": "redis",
+      "content": "MSET color black country palestine "
+    },
+    {
+      "id": "1792049776799",
+      "type": "redis",
+      "content": "MGET color country nx"
+    },
+    {
+      "id": "1792049875726",
+      "type": "markdown",
+      "content": "3 - GETDEL\n\nhttps://redis.io/docs/latest/commands/getdel/\n\n```text\nGETDEL key\n```\n\n- Returns the value of a key and deletes the key.\n- Returns nil if the key does not exist.\n\n 4 - GETEX\n\nhttps://redis.io/docs/latest/commands/getex/\n\n```text\nGETEX key [EX seconds | PX milliseconds | EXAT unix-time-seconds | PXAT unix-time-milliseconds | PERSIST]\n```\n\n- Returns the value of a key and optionally changes its expiration.\n- EX / PX = set expiration in seconds / milliseconds.\n- EXAT / PXAT = set expiration at a specific Unix timestamp.\n- PERSIST = removes the key's expiration.\n"
+    }
+  ],
+  "createdAt": "2026-10-15T07:34:19.099Z"
+}

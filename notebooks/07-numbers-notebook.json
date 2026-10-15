@@ -1,0 +1,48 @@
+{
+  "id": "fc32c3",
+  "fileName": "07-numbers-notebook.json",
+  "name": "07 - Numbers",
+  "cells": [
+    {
+      "id": "c893f7",
+      "type": "markdown",
+      "content": "- Redis stores numbers as strings.\n- We use string commands to set, get, and delete values (SET, MSET, GET, MGET, DEL).\n- Redis also provides special commands to perform arithmetic operations on numeric strings.\n\n1. INCR\n\nhttps://redis.io/docs/latest/commands/incr/\n\n```text\nINCR key\n```\n\n- Increments the integer value of a key by 1.\n- If the key does not exist, it is initialized to 0 before incrementing.\n- Returns the new value.\n\n2. DECR\n\nhttps://redis.io/docs/latest/commands/decr/\n\n```text\nDECR key\n```\n\n- Decrements the integer value of a key by 1.\n- If the key does not exist, it is initialized to 0 before decrementing.\n- Returns the new value."
+    },
+    {
+      "id": "09ea4f",
+      "type": "redis",
+      "content": "SET number 20"
+    },
+    {
+      "id": "1792056590298",
+      "type": "redis",
+      "content": "INCR number "
+    },
+    {
+      "id": "1792056606964",
+      "type": "redis",
+      "content": "DECR number "
+    },
+    {
+      "id": "1792056627721",
+      "type": "markdown",
+      "content": "3. INCRBY\n\nhttps://redis.io/docs/latest/commands/incrby/\n\n```text\nINCRBY key increment\n```\n\n- Increments the integer value of a key by the specified amount.\n- If the key does not exist, it is initialized to 0 before incrementing.\n- Returns the new value.\n\n4. DECRBY\n\nhttps://redis.io/docs/latest/commands/decrby/\n\n```text\nDECRBY key decrement\n```\n\n- Decrements the integer value of a key by the specified amount.\n- If the key does not exist, it is initialized to 0 before decrementing.\n- Returns the new value."
+    },
+    {
+      "id": "1792056682696",
+      "type": "markdown",
+      "content": "5. INCRBYFLOAT\n\nhttps://redis.io/docs/latest/commands/incrbyfloat/\n\n```text\nINCRBYFLOAT key increment\n```\n\n- Increments the numeric value of a key by a specified floating-point number (decimal).\n- If the key does not exist, it is initialized to 0 before incrementing.\n- Returns the new value.\n- The result is stored as a string."
+    },
+    {
+      "id": "1792056734672",
+      "type": "markdown",
+      "content": "6. DECIMAL NUMBERS\n\nRedis stores numeric values as strings, but INCRBYFLOAT supports decimal arithmetic.\n\n```redis\nSET price 10.50\nINCRBYFLOAT price 2.25\nGET price\n```\n\nResult:\n\n```text\n12.75\n```\n\n- Use INCRBYFLOAT to add or subtract decimal numbers.\n- To subtract, use a negative increment.\n\n```redis\nINCRBYFLOAT price -1.50\n```\n\nResult: 11.25"
+    },
+    {
+      "id": "1792058543118",
+      "type": "markdown",
+      "content": "7. CONCURRENT INCREMENTS AND DECREMENTS\n\nWhen multiple clients increment or decrement the same number simultaneously, Redis handles individual commands atomically. However, a sequence of commands can still have race conditions.\n\nThree ways to handle this:\n\n1. Atomic commands (INCR / DECR)\n   Use Redis commands directly instead of GET → calculate → SET. Each increment or decrement is atomic.\n\n2. Transactions (WATCH + MULTI/EXEC)\n   Use WATCH to detect whether a key changes before EXEC. If it changes, the transaction can be aborted and retried.\n\n3. Locks\n   Use a distributed lock when multiple operations must be protected as one critical section.\n\nNote: For a simple counter, INCR and DECR are usually enough. Use WATCH or locks when the logic involves multiple steps."
+    }
+  ],
+  "createdAt": "2026-10-15T09:24:56.951Z"
+}

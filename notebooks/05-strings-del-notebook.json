@@ -1,0 +1,23 @@
+{
+  "id": "147740",
+  "fileName": "05-strings-del-notebook.json",
+  "name": "05 - Strings (DEL)",
+  "cells": [
+    {
+      "id": "adb753",
+      "type": "markdown",
+      "content": "- 1 - DEL\n\nhttps://redis.io/docs/latest/commands/del/\n\n```text\nDEL key [key ...]\n```\n\n- Deletes one or more keys, regardless of their data type.\n- Returns the number of keys deleted.\n- Ignores keys that do not exist."
+    },
+    {
+      "id": "c775a8",
+      "type": "redis",
+      "content": "SET delete smt"
+    },
+    {
+      "id": "1792050135672",
+      "type": "redis",
+      "content": "DEL delete\r\nGET delete"
+    }
+  ],
+  "createdAt": "2026-10-15T07:40:01.818Z"
+}

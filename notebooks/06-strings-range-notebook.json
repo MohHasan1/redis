@@ -1,0 +1,28 @@
+{
+  "id": "56f422",
+  "fileName": "06-strings-range-notebook.json",
+  "name": "06 - Strings (Range)",
+  "cells": [
+    {
+      "id": "66d4b9",
+      "type": "markdown",
+      "content": "1. GETRANGE\n\nhttps://redis.io/docs/latest/commands/getrange/\n\n```text\nGETRANGE key start end\n```\n\n- Returns a substring of a string value using start and end indexes.\n- Indexes are zero-based; negative indexes count from the end.\n- The end index is inclusive.\n\n\n2. SETRANGE\n\nhttps://redis.io/docs/latest/commands/setrange/\n\n```text\nSETRANGE key offset value\n```\n\n- Overwrites part of a string value starting at the specified offset.\n- If the key does not exist, Redis creates it.\n- If the offset is beyond the current string length, Redis fills the gap with null bytes.\n- Returns the new string length."
+    },
+    {
+      "id": "fad605",
+      "type": "redis",
+      "content": "SET string \"Today is a good day!\""
+    },
+    {
+      "id": "1792050390972",
+      "type": "redis",
+      "content": "GETRANGE string 11 14 "
+    },
+    {
+      "id": "1792050437514",
+      "type": "redis",
+      "content": "SETRANGE string 11 bad \r\nGET string"
+    }
+  ],
+  "createdAt": "2026-10-15T07:44:09.313Z"
+}

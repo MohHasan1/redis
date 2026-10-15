@@ -1,0 +1,43 @@
+{
+  "id": "fec763",
+  "fileName": "03-strings-setters-notebook.json",
+  "name": "03 - Strings (Setters)",
+  "cells": [
+    {
+      "id": "b114b2",
+      "type": "markdown",
+      "content": "- 1 - SET\n\nhttps://redis.io/docs/latest/commands/set/\n\n```text\nSET key value [NX | XX | IFEQ ifeq-value | IFNE ifne-value | IFDEQ ifdeq-digest | IFDNE ifdne-digest] [GET] [EX seconds | PX milliseconds | EXAT unix-time-seconds | PXAT unix-time-milliseconds | KEEPTTL]\n```\n\n- UPPERCASE = keyword you type literally.\n- lowercase = placeholder; replace it with your value.\n- [] = optional.\n- | = OR; choose one alternative.\n- Quotes (\"\") = group text into a single string when needed.\n- Do not type the square brackets or vertical bars into the actual command.\n\n\n2 - SETEX (deprecated) \n\nhttps://redis.io/docs/latest/commands/setex/\n\n```text\nSETEX key seconds value\n```\n\nDeprecated. Use SET with EX instead:\n\n```redis\nSET key value EX seconds\n```\n\n- 3 - SETNX (deprecated)\n\nhttps://redis.io/docs/latest/commands/setnx/\n\n```text\nSETNX key value\n```\n\nDeprecated. Use SET with NX instead:\n\n```redis\nSET key value NX\n```"
+    },
+    {
+      "id": "1792049220248",
+      "type": "redis",
+      "content": "SETEX color 2 white\r\nGET color "
+    },
+    {
+      "id": "1792049265240",
+      "type": "redis",
+      "content": "GET color "
+    },
+    {
+      "id": "1792049057751",
+      "type": "markdown",
+      "content": "1- MSET\n\nhttps://redis.io/docs/latest/commands/mset/\n\n```text\nMSET key value [key value ...]\n```\n\n- Sets multiple key-value pairs in a single command.\n- key, value = placeholders; replace them with your values.\n- [] = optional.\n- ... = repeat the key-value pair as needed.\n- MSET overwrites existing values for the specified keys.\n\n2 - MSETNX\n\nhttps://redis.io/docs/latest/commands/msetnx/\n\n```text\nMSETNX key value [key value ...]\n```\n\n- Sets multiple key-value pairs only if none of the specified keys already exist.\n- If any key exists, none of the pairs are set. (will not add if one of the keys already exists)\n\n3 - MSETEX\n\nhttps://redis.io/docs/latest/commands/msetex/\n\n```text\nMSETEX numkeys key value [key value ...] [EX seconds | PX milliseconds | EXAT unix-time-seconds | PXAT unix-time-milliseconds]\n```\n\n- Sets multiple key-value pairs with an expiration time.\n- numkeys = number of key-value pairs.\n- EX = expiration in seconds; PX = expiration in milliseconds.\n"
+    },
+    {
+      "id": "02dcad",
+      "type": "redis",
+      "content": "MSET color red model tesla  "
+    },
+    {
+      "id": "1792049307019",
+      "type": "redis",
+      "content": "GET color\r\nGET model"
+    },
+    {
+      "id": "1792049540587",
+      "type": "redis",
+      "content": "// will return 0 as color key already exist\r\nMSETNX color green models tesla "
+    }
+  ],
+  "createdAt": "2026-10-15T07:15:19.079Z"
+}

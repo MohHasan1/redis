@@ -1,0 +1,68 @@
+{
+  "id": "748d8b",
+  "fileName": "02-strings-set-notebook.json",
+  "name": "02 - Strings (SET)",
+  "cells": [
+    {
+      "id": "6de4q4",
+      "type": "markdown",
+      "content": "We can divide the commands into 2 categories: Getters and Setters.\n\nhttps://redis.io/docs/latest/commands/?group=string\n"
+    },
+    {
+      "id": "6de4d4",
+      "type": "markdown",
+      "content": "Lets look at set:\n\nSET key value [expires at] [if] [get]"
+    },
+    {
+      "id": "121f65",
+      "type": "redis",
+      "content": "// We only get the status\r\nSET color red"
+    },
+    {
+      "id": "1792039163754",
+      "type": "redis",
+      "content": "// We get the old value\r\n// GET = return the previous value of the key.\r\nSET color green GET"
+    },
+    {
+      "id": "1792039707525",
+      "type": "markdown",
+      "content": "[NX | XX | IFEQ ifeq-value | IFNE ifne-value | IFDEQ ifdeq-digest | IFDNE ifdne-digest]\n\nwe will talk about NX | XX"
+    },
+    {
+      "id": "1792039217866",
+      "type": "redis",
+      "content": "// XX - the command will only run if key already exists.\r\nSET name mubs XX // - returns null"
+    },
+    {
+      "id": "1792039332913",
+      "type": "redis",
+      "content": "// XX - the command will only run if key already exists.\r\nSET name hasan\r\nSET name mubs XX // - returns OK as name was set before setting again"
+    },
+    {
+      "id": "1792039377905",
+      "type": "redis",
+      "content": "// NX - the command will only run if key does NOT already exists.\r\nSET school seneca NX // - returns Ok"
+    },
+    {
+      "id": "1792039427026",
+      "type": "redis",
+      "content": "SET game cricket NX GET// - returns null as not prev value exist\r\n\r\n// run it twice - u will get cricket as prev value was cricket"
+    },
+    {
+      "id": "1792039747008",
+      "type": "markdown",
+      "content": " [EX seconds | PX milliseconds | EXAT unix-time-seconds | PXAT unix-time-milliseconds | KEEPTTL]\n\nNow we will talk about expirey"
+    },
+    {
+      "id": "1792039585233",
+      "type": "redis",
+      "content": "// Stored in redis for 2 sec\r\nSET hasan \"is male\" EX 2\r\nGET hasan // return is male"
+    },
+    {
+      "id": "1792039824392",
+      "type": "redis",
+      "content": "// wait for 2 sec, it will be removed\r\nGET hasan //  returns null"
+    }
+  ],
+  "createdAt": "2026-10-15T04:06:28.938Z"
+}
