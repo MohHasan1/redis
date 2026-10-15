@@ -62,6 +62,28 @@ npm start
 
 Then open http://localhost:3050. Keep the terminal open while using RBook, and press `Ctrl+C` to stop the server.
 
+## Dark theme
+
+This project applies a custom dark theme to RBook automatically:
+
+- `pnpm install` or `npm install` applies it after installing dependencies.
+- `pnpm start` or `npm start` checks and reapplies it before starting RBook.
+- The patch is safe to run repeatedly and survives dependency reinstalls.
+
+To apply it manually without starting RBook, run:
+
+```powershell
+pnpm run theme:dark
+```
+
+Or, with npm:
+
+```powershell
+npm run theme:dark
+```
+
+After applying the theme, refresh RBook in the browser. Use `Ctrl+F5` if the browser has cached the old stylesheet.
+
 ## How notebook storage works
 
 RBook stores notebooks in its current working directory. The project's `start` script changes into `notebooks` before launching RBook:

@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "cd notebooks && node ../node_modules/rbook/bin/index.js"
+    "postinstall": "node scripts/apply-dark-theme.cjs",
+    "theme:dark": "node scripts/apply-dark-theme.cjs",
+    "start": "node scripts/apply-dark-theme.cjs && cd notebooks && node ../node_modules/rbook/bin/index.js"
   },
   "keywords": [],
   "author": "",
