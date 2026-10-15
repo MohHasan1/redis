@@ -117,6 +117,21 @@ hr {
   --tw-prose-td-borders: #374151;
   color: #d1d5db !important;
 }
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6,
+.prose h1 *,
+.prose h2 *,
+.prose h3 *,
+.prose h4 *,
+.prose h5 *,
+.prose h6 * {
+  color: #f9fafb !important;
+}
 ${markerEnd}
 `;
 
